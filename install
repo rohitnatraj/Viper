@@ -1,0 +1,15 @@
+#!/bin/bash
+TEMPLATE_DIRECTORY=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+SOURCE_DIRECTORY='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates/Source'
+
+eval cd $SOURCE_DIRECTORY
+
+echo Creating symbolic links
+sudo rm "VIPER Tests.xctemplate"
+sudo rm "VIPER.xctemplate"
+sudo rm "VIPER Old Tests.xctemplate"
+sudo rm "VIPER New Tests.xctemplate"
+sudo ln -s -f "$TEMPLATE_DIRECTORY/VIPER.xctemplate" VIPER.xctemplate
+sudo ln -s -f "$TEMPLATE_DIRECTORY/VIPER Old Tests.xctemplate" "VIPER Old Tests.xctemplate"
+sudo ln -s -f "$TEMPLATE_DIRECTORY/VIPER New Tests.xctemplate" "VIPER New Tests.xctemplate"
+echo Done
